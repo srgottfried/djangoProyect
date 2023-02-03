@@ -1,11 +1,14 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-
-<form method="POST">
-    {% csrf_token %}
-    <p>Vas a eliminar este pedido: "{{ pedido }}"</p>
-    <a class="btn btn-secondary" href="{% url 'pedidos' %}">Cancelar</a>
-    <input class="btn btn-danger" type="submit" value="Eliminar">
-</form>
+{% load bootstrap_icons %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="text-center">
+            {%   md_icon 'truck-alert' size='10em' %}
+            <p style="font-weight: bolder">Estás a punto de cancelar el pedido: "{{ pedido }}"</p>
+            <input class="btn btn-danger" type="submit" value="Confirmar">
+            <a class="btn btn-secondary" href="{% url 'pedidos' %}">Cancelar</a>
+        </div>
+    </form>
 {% endblock content %}

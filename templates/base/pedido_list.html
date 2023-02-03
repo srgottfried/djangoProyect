@@ -3,9 +3,10 @@
     {% load bootstrap_icons %}
 
     <h1>Hola {{ request.user|title }}</h1>
-    <h3>Tienes {{ count }} pedido{{ count|pluralize }} pendiente{{ count|pluralize }} de entrega</h3>
+    <h3>{% md_icon 'truck-delivery' size='1em' %}Tienes {{ count }} pedido{{ count|pluralize }}
+        pendiente{{ count|pluralize }} de entrega</h3>
 
-    <a class="btn btn-primary mt-2 mb-2" href="{% url 'crear-pedido' %}">Crear nuevo pedido</a>
+    <a class="btn btn-dark mt-2 mb-2" href="{% url 'crear-pedido' %}">Crear nuevo pedido</a>
 
     <hr/>
 
@@ -20,22 +21,20 @@
             </div>
         </form>
     </div>
-    <div>
+    <div class="m-3">
         {% for pedido in pedidos %}
             {% if pedido.completo %}
-                <div class="d-inline">
+                <div>
                     <i><s><a href="{% url 'editar-pedido' pedido.id %}">{{ pedido }}</a></s></i>
+                    <a href="{% url 'eliminar-pedido' pedido.id %}">{% md_icon 'truck-remove' color='red' size='1.5em' %}</a>
                 </div>
-                <a class="d-inline" href="{% url 'eliminar-pedido' pedido.id %}">{% bs_icon 'trash3' %}</a>
+
             {% else %}
-                <div class="d-inline">
-                    <a href="{% url 'editar-pedido' pedido.id %}">{{ pedido }}</a>
-
+                <div>
+                    <a style="color: black" href="{% url 'editar-pedido' pedido.id %}">{{ pedido }}</a>
+                    <a href="{% url 'eliminar-pedido' pedido.id %}">{% md_icon 'truck-remove' color='red' size='1.5em' %}</a>
                 </div>
-                <a class="d-inline" href="{% url 'eliminar-pedido' pedido.id %}">{% bs_icon 'trash3' %}</a>
             {% endif %}
-
-
         {% empty %}
             <span> No hay elementos en la lista</span>
         {% endfor %}

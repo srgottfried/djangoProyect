@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title>JustMeet</title>
 </head>
-<body>
+<body class="bg-light">
 <header class="p-3 bg-dark text-bg-dark">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -36,7 +36,7 @@
         </div>
     </div>
 </header>
-<div class="container container-fluid p-5">
+<div class="container container-fluid p-5 bg-light">
     {% block content %}
 
     {% endblock content %}
@@ -45,7 +45,7 @@
 
 <div class="container-fluid bg-dark m-0 p-0">
   <footer class="py-3 m-0 p-0 bg-dark">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <ul class="nav justify-content-center pb-3 mb-3">
       <li class="nav-item"><a href="{% url 'contacto' %}" class="nav-link px-2 text-muted">Contacto</a></li>
       <li class="nav-item"><a href="{% url 'proveedores' %}" class="nav-link px-2 text-muted">Proveedores</a></li>
       <li class="nav-item"><a href="{% url 'sobre-nosotros' %}" class="nav-link px-2 text-muted">Sobre nosotros</a></li>

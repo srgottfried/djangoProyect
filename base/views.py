@@ -79,7 +79,7 @@ class DetallePedido(LoginRequiredMixin, DetailView):
 
 class CrearPedido(LoginRequiredMixin, CreateView):
     model = Pedido
-    fields = ['titulo', 'descripcion', 'completo', 'productos', 'servicios', 'direccion']
+    fields = ['titulo', 'descripcion', 'productos', 'servicios', 'direccion']
     success_url = reverse_lazy('pedidos')
 
     def form_valid(self, form):
@@ -89,7 +89,7 @@ class CrearPedido(LoginRequiredMixin, CreateView):
 
 class EditarPedido(LoginRequiredMixin, UpdateView):
     model = Pedido
-    fields = ['titulo', 'descripcion', 'completo', 'productos', 'servicios', 'direccion']
+    fields = ['titulo', 'descripcion', 'productos', 'servicios', 'direccion']
     success_url = reverse_lazy('pedidos')
 
 

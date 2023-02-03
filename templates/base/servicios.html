@@ -1,7 +1,10 @@
 {% extends 'base/base.html' %}
 {% block content %}
     {% load bootstrap_icons %}
-    <div >
+    <div class="pb-3">
+    <h1>{% md_icon 'room-service' size='1em'%}Servicios</h1>
+    </div>
+    <div>
         <form method="GET" class="row my-12">
             <div class="col-auto">
                 <input class="form-control" type="text" name="area-buscar" value="{{ valor_buscado }}"/>
@@ -11,8 +14,8 @@
             </div>
         </form>
     </div>
-
-    <div class="album py-5">
+<hr/>
+    <div class="album py-3">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 

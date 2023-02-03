@@ -1,59 +1,67 @@
-{% extends 'base/base.html' %}
-{% block content %}
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% load bootstrap_icons %}
+
+<html lang="es">
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    <meta charset="UTF-8">
+    <title>JustMeet</title>
+</head>
+<body>
+<header class="p-3 bg-dark text-bg-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            </a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{% url 'index' %}" class="nav-link px-2 text-white"><span
+                        style=" font-weight: bolder;background-color: #1b1e21;color:#ffc107;border-style: solid; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em' %}MEET</span></a>
+                </li>
+                <li><a href="{% url 'productos' %}" class="nav-link px-2 text-white">Productos</a></li>
+                <li><a href="{% url 'servicios' %}" class="nav-link px-2 text-white">Servicios</a></li>
+            </ul>
+
+
+            <div class="text-end">
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}" type="button" class="btn btn-outline-light me-2">Iniciar Sesión</a>
+                    <a href="{% url 'registro' %}" type="button" class="btn btn-warning">Registrarse</a>
+                {% else %}
+                    <a href="{% url 'pedidos' %}" type="button" class="btn btn-outline-light me-2">Mis pedidos</a>
+                    <a href="{% url 'logout' %}" type="button" class="btn btn-danger me-2">Cerrar Sesión</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
+<div>
+
     {% load bootstrap_icons %}
 
-    <div class="container px-4 py-5" id="featured-3">
-        <h1 class="pb-2 border-bottom text-center">Nuestros productos</h1>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col">
-                <div class="feature-icon">
-                    {% md_icon 'corn' size='4em' %}
-                </div>
-                <h2>Veggie friendly</h2>
-                <p>En nuestro catálogo de productos siempre puedes encontrar opciones vegetarianas y veganas.</p>
-            </div>
-            <div class="feature col">
-                <div class="feature-icon">
-                    {% md_icon 'barley-off' size='4em' %}
-                </div>
-                <h2>Sin gluten</h2>
-                <p>Tenemos opción sin gluten para personas celiacas e intorlerantes al gluten.</p>
-            </div>
-            <div class="feature col">
-                <div class="feature-icon">
-                    {% md_icon 'peanut-off' size='4em' %}
-                </div>
-                <h2>Sin alérgenos</h2>
-                <p>La elaboración de nuestros productos pasa un exhaustivo control de alérgenos para la seguridad del consumidor.</p>
-            </div>
-        </div>
+    <div>
+        <img style="border-radius: 0" src="base/static/img/carousel/hamburguesa.jpg" class="card-img"
+             width="100%" height="100%" size=""/>
     </div>
 
-    <div class="container px-4 py-5" id="featured-3">
-        <h1 class="pb-2 border-bottom text-center">Nuestros servicios</h1>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col">
-                <div class="feature-icon">
-                    {% md_icon 'school' size='4em' %}
-                </div>
-                <h2>Institutos</h2>
-                <p>Proveemos servicios de katering a escuales, institutos y universidades.</p>
-            </div>
-            <div class="feature col">
-                <div class="feature-icon">
-                    {% md_icon 'dance-ballroom' size='4em' %}
-                </div>
-                <h2>Bodas y eventos</h2>
-                <p>Proveemos servicios de katering para bodas, cumpleaños y eventos.</p>
-            </div>
-            <div class="feature col">
-                <div class="feature-icon">
-                    {% md_icon 'hospital-building' size='4em' %}
-                </div>
-                <h2>Hospitales</h2>
-                <p>Proveemos servicios de katering a centros de saludo y hospitales.</p>
-            </div>
-        </div>
-    </div>
+</div>
 
-{% endblock content %}
+
+<div class="container-fluid bg-dark m-0 p-0">
+    <footer class="py-3 m-0 p-0 bg-dark">
+        <ul class="nav justify-content-center pb-3 mb-3">
+            <li class="nav-item"><a href="{% url 'contacto' %}" class="nav-link px-2 text-muted">Contacto</a></li>
+            <li class="nav-item"><a href="{% url 'proveedores' %}" class="nav-link px-2 text-muted">Proveedores</a></li>
+            <li class="nav-item"><a href="{% url 'sobre-nosotros' %}" class="nav-link px-2 text-muted">Sobre
+                nosotros</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2022 <span
+                style=" font-weight: bolder;color:#ffc107; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em' %}MEET</span>
+            Todos los derechos reservados.</p>
+    </footer>
+</div>
+</body>
+</html>

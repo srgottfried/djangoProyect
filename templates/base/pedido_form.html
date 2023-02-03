@@ -1,14 +1,27 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
+{% load bootstrap_icons %}
     {% if pedido.id > 0 %}
-        <h1>Editar pedido</h1>
+        <h1>{% md_icon 'note-edit' size='1em' %} Editar pedido</h1>
     {% else %}
-        <h1>Nuevo pedido</h1>
+        <h1>{% md_icon 'truck-delivery' size='1em' %} Nuevo pedido </h1>
     {% endif %}
     <form method="POST" action="">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Enviar"/>
+        <table class="table">
+            {{ form.as_table }}
+        </table>
+
+        {% if not pedido.id > 0 %}
+            <input class="btn btn-primary" type="submit" value="Procesar el pedido"/>
+            <a class="btn btn-secondary" href="{% url 'pedidos' %}">Cancelar</a>
+        {% else %}
+            <input class="btn btn-primary" type="submit" value="Editar el pedido"/>
+            <a class="btn btn-secondary" href="{% url 'pedidos' %}">Cancelar</a>
+        {% endif %}
     </form>
+
+
+
 {% endblock content %}

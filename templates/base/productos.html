@@ -1,6 +1,9 @@
 {% extends 'base/base.html' %}
 {% block content %}
     {% load bootstrap_icons %}
+    <div class="pb-3">
+    <h1>{% md_icon 'food-variant' size='1em'%}Productos</h1>
+    </div>
     <div >
         <form method="GET" class="row my-12">
             <div class="col-auto">
@@ -11,8 +14,8 @@
             </div>
         </form>
     </div>
-
-    <div class="album py-5">
+<hr/>
+    <div class="album py-3">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
