@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+{% load bootstrap_icons %}
+
+<html lang="es">
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+    <meta charset="UTF-8">
+    <title>JustMeet</title>
+</head>
+<body>
+<header class="p-3 bg-dark text-bg-dark">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            </a>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{% url 'index' %}" class="nav-link px-2 text-white"><span style=" font-weight: bolder;background-color: #1b1e21;color:#ffc107;border-style: solid; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em'  %}MEET</span></a></li>
+                <li><a href="{% url 'productos' %}" class="nav-link px-2 text-white">Productos</a></li>
+                <li><a href="{% url 'servicios' %}" class="nav-link px-2 text-white">Servicios</a></li>
+            </ul>
+
+
+            <div class="text-end">
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login' %}" type="button" class="btn btn-outline-light me-2">Iniciar Sesión</a>
+                    <a href="{% url 'registro' %}" type="button" class="btn btn-warning">Registrarse</a>
+                {% else %}
+                    <a href="{% url 'pedidos' %}" type="button" class="btn btn-outline-light me-2">Mis pedidos</a>
+                    <a href="{% url 'logout' %}" type="button" class="btn btn-danger me-2">Cerrar Sesión</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container container-fluid p-5">
+    {% block content %}
+
+    {% endblock content %}
+</div>
+
+
+<div class="container-fluid bg-dark m-0 p-0">
+  <footer class="py-3 m-0 p-0 bg-dark">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="{% url 'contacto' %}" class="nav-link px-2 text-muted">Contacto</a></li>
+      <li class="nav-item"><a href="{% url 'proveedores' %}" class="nav-link px-2 text-muted">Proveedores</a></li>
+      <li class="nav-item"><a href="{% url 'sobre-nosotros' %}" class="nav-link px-2 text-muted">Sobre nosotros</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2022 <span style=" font-weight: bolder;color:#ffc107; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em'  %}MEET</span> Todos los derechos reservados.</p>
+  </footer>
+</div>
+</body>
+</html>

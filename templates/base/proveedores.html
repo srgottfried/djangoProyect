@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    {% load bootstrap_icons %}
+
+    <div class="container px-4 py-5" id="featured-3">
+        <h1 class="pb-2 border-bottom text-center">Nuestros proveedores</h1>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+                <div class="feature-icon">
+                    {% md_icon 'store' size='4em' %}
+                </div>
+                <h2>Comercio local</h2>
+                <p>Apoyamos el comercio local, consumiendo productos frescos y próximos.</p>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon">
+                    {% md_icon 'leaf' size='4em' %}
+                </div>
+                <h2>Cultivo ecológico</h2>
+                <p>Todos nuestros productos provienen de la agricultura ecológica.</p>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon">
+                    {% md_icon 'cow' size='4em' %}
+                </div>
+                <h2>Ganadería responsable</h2>
+                <p>Nuestros productos ganaderos son éticamente responsables y justos con la vida animal.</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

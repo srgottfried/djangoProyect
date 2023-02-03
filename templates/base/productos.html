@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    {% load bootstrap_icons %}
+    <div >
+        <form method="GET" class="row my-12">
+            <div class="col-auto">
+                <input class="form-control" type="text" name="area-buscar" value="{{ valor_buscado }}"/>
+            </div>
+            <div class="col-auto">
+                <input class="btn btn-secondary" type="submit" value="Buscar"/>
+            </div>
+        </form>
+    </div>
+
+    <div class="album py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                {% for producto in productos %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="card-img-top" width="100%" height="225" src="../{{ producto.imagen }}"/>
+                            <div class="card-body">
+                                <p class="card-title">{{ producto.nombre }}</p>
+                                <p class="card-text text-muted">{{ producto.descripcion }}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Detalles</button>
+                                    </div>
+                                    <bold class="text-success">{{ producto.precio }}€</bold>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% empty %}
+                    <span> No hay elementos en la lista</span>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

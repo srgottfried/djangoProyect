@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    {% if pedido.id > 0 %}
+        <h1>Editar pedido</h1>
+    {% else %}
+        <h1>Nuevo pedido</h1>
+    {% endif %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Enviar"/>
+    </form>
+{% endblock content %}

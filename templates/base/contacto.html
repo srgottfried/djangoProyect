@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    {% load bootstrap_icons %}
+
+    <div class="container px-4 py-5" id="featured-3">
+        <h1 class="pb-2 border-bottom text-center">Contacta con nosotros</h1>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+                <div class="feature-icon">
+                    {% md_icon 'phone' size='4em' %}
+                </div>
+                <h2>Teléfono</h2>
+                <hr/>
+                <p>666 666 666</p>
+                <p>900 00 00 00</p>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon">
+                    {% md_icon 'email' size='4em' %}
+                </div>
+                <h2>Email</h2>
+                <hr/>
+                <p>info@justmeet.com</p>
+                <p>aac@justmeet.com</p>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon">
+                    {% md_icon 'office-building-outline' size='4em' %}
+                </div>
+                <h2>Oficinas</h2>
+                <hr/>
+                <p>Rua Sarmiento número 8</p>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

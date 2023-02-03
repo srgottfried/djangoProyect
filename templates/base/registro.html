@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <h1>Registro</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table align-top">
+        {{ form.as_table }}
+            </table>
+        <input class="btn btn-lg btn-primary mt-2" type="submit" value="Registrarse">
+    </form>
+
+    <p class="mt-5">Ya tienes una cuenta. <a href="{% url 'login' %}">Inicia sesión</a></p>
+{% endblock content %}

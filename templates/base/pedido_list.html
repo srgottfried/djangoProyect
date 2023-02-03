@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    {% load bootstrap_icons %}
+
+    <h1>Hola {{ request.user|title }}</h1>
+    <h3>Tienes {{ count }} pedido{{ count|pluralize }} pendiente{{ count|pluralize }} de entrega</h3>
+
+    <a class="btn btn-primary mt-2 mb-2" href="{% url 'crear-pedido' %}">Crear nuevo pedido</a>
+
+    <hr/>
+
+
+    <div>
+        <form method="GET" class="row my-12">
+            <div class="col-auto">
+                <input class="form-control" type="text" name="area-buscar" value="{{ valor_buscado }}"/>
+            </div>
+            <div class="col-auto">
+                <input class="btn btn-secondary" type="submit" value="Buscar"/>
+            </div>
+        </form>
+    </div>
+    <div>
+        {% for pedido in pedidos %}
+            {% if pedido.completo %}
+                <div class="d-inline">
+                    <i><s><a href="{% url 'editar-pedido' pedido.id %}">{{ pedido }}</a></s></i>
+                </div>
+                <a class="d-inline" href="{% url 'eliminar-pedido' pedido.id %}">{% bs_icon 'trash3' %}</a>
+            {% else %}
+                <div class="d-inline">
+                    <a href="{% url 'editar-pedido' pedido.id %}">{{ pedido }}</a>
+
+                </div>
+                <a class="d-inline" href="{% url 'eliminar-pedido' pedido.id %}">{% bs_icon 'trash3' %}</a>
+            {% endif %}
+
+
+        {% empty %}
+            <span> No hay elementos en la lista</span>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
