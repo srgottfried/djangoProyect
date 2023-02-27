@@ -18,7 +18,9 @@
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
             </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{% url 'index' %}" class="nav-link px-2 text-white"><span style=" font-weight: bolder;background-color: #1b1e21;color:#ffc107;border-style: solid; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em'  %}MEET</span></a></li>
+                <li><a href="{% url 'index' %}" class="nav-link px-2 text-white"><span
+                        style=" font-weight: bolder;background-color: #1b1e21;color:#ffc107;border-style: solid; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em' %}MEET</span></a>
+                </li>
                 <li><a href="{% url 'productos' %}" class="nav-link px-2 text-white">Productos</a></li>
                 <li><a href="{% url 'servicios' %}" class="nav-link px-2 text-white">Servicios</a></li>
             </ul>
@@ -44,14 +46,17 @@
 
 
 <div class="container-fluid bg-dark m-0 p-0">
-  <footer class="py-3 m-0 p-0 bg-dark">
-    <ul class="nav justify-content-center pb-3 mb-3">
-      <li class="nav-item"><a href="{% url 'contacto' %}" class="nav-link px-2 text-muted">Contacto</a></li>
-      <li class="nav-item"><a href="{% url 'proveedores' %}" class="nav-link px-2 text-muted">Proveedores</a></li>
-      <li class="nav-item"><a href="{% url 'sobre-nosotros' %}" class="nav-link px-2 text-muted">Sobre nosotros</a></li>
-    </ul>
-    <p class="text-center text-muted">© 2022 <span style=" font-weight: bolder;color:#ffc107; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em'  %}MEET</span> Todos los derechos reservados.</p>
-  </footer>
+    <footer class="py-3 m-0 p-0 bg-dark">
+        <ul class="nav justify-content-center pb-3 mb-3">
+            <li class="nav-item"><a href="{% url 'contacto' %}" class="nav-link px-2 text-muted">Contacto</a></li>
+            <li class="nav-item"><a href="{% url 'proveedores' %}" class="nav-link px-2 text-muted">Proveedores</a></li>
+            <li class="nav-item"><a href="{% url 'sobre-nosotros' %}" class="nav-link px-2 text-muted">Sobre
+                nosotros</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2022 <span
+                style=" font-weight: bolder;color:#ffc107; padding: 10px">JUST{% md_icon 'food-turkey' size='1.5em' %}MEET</span>
+            Todos los derechos reservados.</p>
+    </footer>
 </div>
 </body>
 </html>
